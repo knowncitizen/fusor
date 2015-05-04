@@ -1,16 +1,13 @@
-{{aaa}}
-{{controller.aaa}}
-{{controller.stepNumberSubscriptions}}
 <div class="row tabbed_side_nav_form">
 
   <ul class="nav nav-pills nav-stacked col-md-3">
       {{#link-to 'subscriptions.credentials' tagName='li'}}
         <a>{{stepNumberSubscriptions}}A. Enter Credentials</a>
       {{/link-to}}
-      {{#link-to 'subscriptions.select-subscriptions' tagName='li'}}
+      {{#link-to 'subscriptions.select-subscriptions' tagName='li' disabled=disableTabManagementApplication}}
         <a>{{stepNumberSubscriptions}}B. Select Subscription Management Application</a>
       {{/link-to}}
-      {{#link-to 'subscriptions.select-subscriptions' tagName='li'}}
+      {{#link-to 'subscriptions.select-subscriptions' tagName='li' disabled=disableTabSelectSubsciptions}}
         <a>{{stepNumberSubscriptions}}C. Select Subscriptions</a>
       {{/link-to}}
   </ul>
@@ -20,4 +17,5 @@
   </div>
 
 </div>
+
 
