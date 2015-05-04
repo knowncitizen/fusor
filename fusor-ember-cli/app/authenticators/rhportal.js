@@ -31,12 +31,13 @@ export default Base.extend({
   },
 
   authenticate: function(credentials) {
-        alert('got 333333');
+        console.log("333333");
+        console.log(credentials);
 
         var self = this;
         return new Ember.RSVP.Promise(function (resolve, reject) {
-          // Ember.$.ajax({
-          //     url: '/api/v2/users/' + credentials.identification,
+          Ember.$.ajax({
+              url: '/api/v2/users/' + credentials.identification,
           //     headers: {
           //         "Authorization": "Basic " + btoa(credentials.identification + ':' + credentials.password)
           //     },
@@ -49,7 +50,7 @@ export default Base.extend({
           //     error: function(response){
           //       reject(response);
           //     }
-          // });
+          });
         });
   },
 

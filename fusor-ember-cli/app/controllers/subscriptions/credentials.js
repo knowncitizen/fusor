@@ -3,13 +3,13 @@ import LoginControllerMixin from 'simple-auth/mixins/login-controller-mixin';
 
 export default Ember.Controller.extend(LoginControllerMixin, {
 
-  username: null,
+  identification: null,
   password: null,
   buttonLoginTitle: 'Login',
 
   disableCredentialsNext: function() {
-    return (Ember.isBlank(this.get('username')) || Ember.isBlank(this.get('password')));
-  }.property('username', 'password'),
+    return (Ember.isBlank(this.get('identification')) || Ember.isBlank(this.get('password')));
+  }.property('identification', 'password'),
 
   authenticator: 'authenticator:rhportal',
 
@@ -17,7 +17,6 @@ export default Ember.Controller.extend(LoginControllerMixin, {
 
     authenticate: function() {
       var self = this;
-      alert('got here');
 
       // if (this.get('authType') == 'Basic') {
         return this._super().then(function() {
