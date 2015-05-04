@@ -1,10 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
-  isChecked: false,
+export default Ember.Controller.extend({
 
-  registerOnParent: function() {
-    this.send('registerToggle', this);
-  }.on('init'),
 
 });
