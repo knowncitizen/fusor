@@ -32,7 +32,7 @@ Default subscription selections have been made for the components of your RHCI d
     </thead>
 
   <tbody>
-  {{#each subscription in controller.model itemController="subscription"}}
+  {{#each subscription in controller.model}}
     <tr>
       <td> {{input type="checkbox" checked=subscription.isChecked}}</td>
       <td> {{subscription.name}} </td>

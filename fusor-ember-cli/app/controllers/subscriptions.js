@@ -5,8 +5,8 @@ export default Ember.Controller.extend({
 
   stepNumberSubscriptions: Ember.computed.alias("controllers.deployment.stepNumberSubscriptions"),
 
-  disableTabManagementApplication: true,
+  disableTabManagementApplication: false, //true,
 
-  disableTabSelectSubsciptions: true
+  disableTabSelectSubsciptions: false, //true
 
 });
