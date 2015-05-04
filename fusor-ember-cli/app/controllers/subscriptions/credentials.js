@@ -3,13 +3,15 @@ import LoginControllerMixin from 'simple-auth/mixins/login-controller-mixin';
 
 export default Ember.Controller.extend(LoginControllerMixin, {
 
+  needs: ['deployment'],
+
   identification: null,
   password: null,
   buttonLoginTitle: 'Login',
 
   disableCredentialsNext: function() {
     return (Ember.isBlank(this.get('identification')) || Ember.isBlank(this.get('password')));
-  }.property('identification', 'password'),
+  }.property('username', 'password'),
 
   authenticator: 'authenticator:rhportal',
 
@@ -17,12 +19,12 @@ export default Ember.Controller.extend(LoginControllerMixin, {
 
     authenticate: function() {
       var self = this;
-
+      var deployment = this.get('controllers.deployment.model')
       // if (this.get('authType') == 'Basic') {
         return this._super().then(function() {
       //         var adapter = self.store.adapterFor('ApplicationAdapter');
       //         adapter.set('headers', { Authorization: 'Basic ' + self.get('session.basicAuthToken') });
-               return self.transitionTo('subscriptions.management-application');
+               return self.transitionTo('subscriptions.management-application', deployment);
       //     }, function () {
       //           return self.set('errorMessage', "Your username or password is incorrect. Please try again.");
            });

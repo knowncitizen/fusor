@@ -11,45 +11,44 @@ export default Base.extend({
 
     var self = this;
     return new Ember.RSVP.Promise(function (resolve, reject) {
-      // Ember.$.ajax({
-      //     url: '/api/v2/users/' + options.loginUsername,
-      //     headers: {
-      //         "Authorization": "Basic " + options.basicAuthToken
-      //     },
-      //     success: function(response) {
-      //       resolve({currentUser: response,
-      //                loginUsername: response.login,
-      //                basicAuthToken: options.basicAuthToken,
-      //                authType: 'Basic'});
-      //     },
+      Ember.$.ajax({
+          url: '/api/v2/users/' + options.loginUsername,
+          headers: {
+              "Authorization": "Basic " + options.basicAuthToken
+          },
+          success: function(response) {
+            resolve({currentUser: response,
+                     loginUsername: response.login,
+                     basicAuthToken: options.basicAuthToken,
+                     authType: 'Basic'});
+          },
 
-      //     error: function(response){
-      //       reject(response);
-      //     }
-      // });
+          error: function(response){
+            reject(response);
+          }
+      });
     });
   },
 
   authenticate: function(credentials) {
-        console.log("333333");
         console.log(credentials);
 
         var self = this;
         return new Ember.RSVP.Promise(function (resolve, reject) {
           Ember.$.ajax({
               url: '/api/v2/users/' + credentials.identification,
-          //     headers: {
-          //         "Authorization": "Basic " + btoa(credentials.identification + ':' + credentials.password)
-          //     },
-          //     success: function(response) {
-          //       resolve({currentUser: response,
-          //                loginUsername: response.login,
-          //                basicAuthToken: btoa(credentials.identification + ':' + credentials.password),
-          //                authType: 'Basic'});
-          //     },
-          //     error: function(response){
-          //       reject(response);
-          //     }
+              headers: {
+                  "Authorization": "Basic " + btoa(credentials.identification + ':' + credentials.password)
+              },
+              success: function(response) {
+                resolve({currentUser: response,
+                         loginUsername: response.login,
+                         basicAuthToken: btoa(credentials.identification + ':' + credentials.password),
+                         authType: 'Basic'});
+              },
+              error: function(response){
+                reject(response);
+              }
           });
         });
   },
