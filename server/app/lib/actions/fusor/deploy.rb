@@ -32,33 +32,37 @@ module Actions
           products_host_groups = [host_groups[:rhev], host_groups[:cloudforms], host_groups[:openstack]]
 
           products_enabled.each_with_index do |product_enabled, index|
-            if product_enabled && products_content[index] && products_host_groups[index]
-              unless skip_content
-                plan_action(::Actions::Fusor::Content::EnableRepositories,
-                            deployment.organization,
-                            products_content[index])
+            if product_enabled
+              if products_content[index]
+                unless skip_content
+                  plan_action(::Actions::Fusor::Content::EnableRepositories,
+                              deployment.organization,
+                              products_content[index])
 
-                # As part of enabling repositories, zero or more repos will be created.  Let's
-                # retrieve the repos needed for the deployment and use them in actions that follow
-                repositories = retrieve_deployment_repositories(deployment.organization, products_content[index])
+                  # As part of enabling repositories, zero or more repos will be created.  Let's
+                  # retrieve the repos needed for the deployment and use them in actions that follow
+                  repositories = retrieve_deployment_repositories(deployment.organization, products_content[index])
 
-                plan_action(::Actions::Fusor::Content::SyncRepositories, repositories)
+                  plan_action(::Actions::Fusor::Content::SyncRepositories, repositories)
 
-                plan_action(::Actions::Fusor::Content::PublishContentView,
+                  plan_action(::Actions::Fusor::Content::PublishContentView,
+                              deployment,
+                              yum_repositories(repositories)) if deployment.lifecycle_environment_id
+                end
+
+                unless repositories
+                  repositories = retrieve_deployment_repositories(deployment.organization, products_content[index])
+                end
+                plan_configure_activation_key(deployment, yum_repositories(repositories))
+              end
+
+              if products_host_groups[index]
+                enable_smart_class_parameter_overrides(products_host_groups[index])
+
+                plan_action(::Actions::Fusor::ConfigureHostGroups,
                             deployment,
-                            repositories) if deployment.lifecycle_environment_id
+                            products_host_groups[index])
               end
-
-              unless repositories
-                repositories = retrieve_deployment_repositories(deployment.organization, products_content[index])
-              end
-              plan_configure_activation_key(deployment, repositories)
-
-              enable_smart_class_parameter_overrides(products_host_groups[index])
-
-              plan_action(::Actions::Fusor::ConfigureHostGroups,
-                          deployment,
-                          products_host_groups[index])
             end
           end
 
@@ -84,6 +88,10 @@ module Actions
         repos = []
         product_content.each { |details| repos << find_repository(organization, details) }
         repos
+      end
+
+      def yum_repositories(repositories)
+        repositories.select{ |repo| repo.content_type == ::Katello::Repository::YUM_TYPE }
       end
 
       def enable_smart_class_parameter_overrides(product_host_groups)
