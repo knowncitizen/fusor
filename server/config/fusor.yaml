@@ -46,6 +46,11 @@
         :basearch: "x86_64"
         :releasever: "6Server"
 
+    :cloudforms:
+      - :product_name: "Red Hat CloudForms"
+        :repository_set_name: "Red Hat CloudForms Management Engine 5.3 (Files)"
+        :basearch: "x86_64"
+
   :puppet_classes:
     - :name: "ovirt"
     - :name: "ovirt::engine::config"

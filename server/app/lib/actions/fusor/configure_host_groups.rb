@@ -30,7 +30,7 @@ module Actions
                   :user_id => ::User.current.id)
       end
 
-      def finalize
+      def run
         # Note: user_id is being passed in and then used to set User.current to address an error
         # that could occur when we later attempt to access ::Katello.pulp_server indirectly through
         # this action.  In the future, we may want to see if there are alternatives to this approach.
@@ -172,6 +172,13 @@ module Actions
               :puppet_classes =>
               [
                 {
+                  :name => "ovirt",
+                  :parameters =>
+                  [
+                    { :name => "deploy_cfme", :value => deployment.deploy_cfme }
+                  ]
+                },
+                {
                   :name => "ovirt::engine::config",
                   :parameters =>
                   [
@@ -185,7 +192,10 @@ module Actions
                     { :name => "storage_address", :value => deployment.rhev_storage_address },
                     { :name => "storage_type", :value => deployment.rhev_storage_type },
                     { :name => "storage_path", :value => deployment.rhev_share_path },
-                    { :name => "cpu_type", :value => deployment.rhev_cpu_type }
+                    { :name => "cpu_type", :value => deployment.rhev_cpu_type },
+                    { :name => "export_name", :value => deployment.rhev_export_domain_name },
+                    { :name => "export_address", :value => deployment.rhev_export_domain_address },
+                    { :name => "export_path", :value => deployment.rhev_export_domain_path }
                   ]
                 },
                 {

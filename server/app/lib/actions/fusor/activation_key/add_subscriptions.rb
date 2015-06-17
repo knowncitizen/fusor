@@ -29,7 +29,7 @@ module Actions
                     :repository_cp_labels => repositories.map(&:cp_label))
         end
 
-        def finalize
+        def run
           ::User.current = ::User.find(input[:user_id])
 
           key = ::Katello::ActivationKey.where(:organization_id => input[:organization_id],
@@ -44,8 +44,8 @@ module Actions
 
         def associate_subscriptions(key)
           subscription_descriptions.each do |description|
-            subscription = key.available_subscriptions.find{ |key| key.description == description }
-            key.subscribe(subscription.cp_id) if subscription
+            subscriptions = key.available_subscriptions.find_all{ |key| key.description == description }
+            subscriptions.each{ |subscription| key.subscribe(subscription.cp_id) } if subscriptions
           end
         end
 

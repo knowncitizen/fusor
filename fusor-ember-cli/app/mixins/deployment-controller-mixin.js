@@ -12,7 +12,7 @@ export default Ember.Mixin.create({
 
   // default is downstream
   isUpstream: false,
-  hideSubscriptions: true,
+  hideSubscriptions: false,
   isSubscriptions: function () {
     return (!(this.get('hideSubscriptions') && !(this.get('isUpstream'))));
   }.property('isUpstream', 'hideSubscriptions'),
@@ -68,6 +68,8 @@ export default Ember.Mixin.create({
   logoPath: function() {
     if (this.get('isUpstream')) { return "assets/foreman.png"; } else { return "assets/Header-logotype.png"; }
   }.property('isUpstream'),
+
+  currentStepNumber: null, //set by setupController,
 
   // steps
   stepNumberRhev: 2,

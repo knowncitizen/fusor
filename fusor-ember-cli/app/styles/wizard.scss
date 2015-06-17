@@ -1,60 +1,100 @@
-.wizard li {
-  padding: 8px 12px 8px;
+/* wizard.scss */
+
+.rhci-parent-sidebar {
+  display: webkit-box;
+  display: webkit-flex;
+  display: ms-flexbox;
+  display: flex;
+  padding-bottom: 5px;
+}
+
+.rhci-steps {
+  color: #999999;
+  font-size: 15px;
+  float: left;
+  list-style-position: inside;
+  margin: 0 0 10px -20px;
+  padding: 0;
+  position: relative;
+}
+.rhci-steps li {
+  float: left;
+  margin: 0;
+  padding: 30px 20px 0;
+  position: relative;
+}
+.rhci-steps li:after {
+  background: #d0d0d0;
+  border-radius: 20px;
+  content: '';
+  height: 8px;
+  left: 50%;
+  margin-left: -4px;
+  position: absolute;
+  top: 16px;
+  width: 8px;
+}
+.rhci-steps li:before {
+  border-top: 1px solid #d0d0d0;
+  content: '';
+  height: 0;
+  left: 0;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+}
+.rhci-steps li:last-child:before {
+  width: 50%;
+}
+.rhci-steps li.active {
+  color: #0099d3;
+}
+.rhci-steps li.active:after {
+  background-color: #0099d3;
+}
+.rhci-steps li.completed {
+  color: #555555;
+}
+.rhci-steps li.completed:after {
+  background-color: #999999;
+}
+.rhci-steps li.completed a {
+  color: #555555;
+  padding-top: 20px;
+}
+.rhci-steps li.completed a:hover {
+  text-decoration: none;
+}
+.rhci-steps li.future a {
+  color: #999999;
+}
+.rhci-steps-buttons {
+  border-top: 1px solid #d0d0d0;
+  text-align: right;
+  background-color: #f5f5f5;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.rhci-steps-buttons .btn {
+  margin-left: 5px;
+}
+.rhci-steps-buttons .btn > .fa-angle-left {
   margin-right: 5px;
-  margin-bottom: 30px;
-  background: #efefef;
-  position: relative;
-  display: inline-block;
-  &:before {
-    width: 0;
-    height: 0;
-    border-top: 20px inset transparent;
-    border-bottom: 20px inset transparent;
-    border-left: 20px solid #fff;
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
- }
- &:after {
-   width: 0;
-   height: 0;
-   border-top: 20px inset transparent;
-   border-bottom: 20px inset transparent;
-   border-left: 20px solid #efefef;
-   position: absolute;
-   content: "";
-   top: 0;
-   right: -20px;
-   z-index: 2;
- }
- &:first-child:before,
- &:last-child:after {
-   border: none;
- }
- &:first-child {
-   -webkit-border-radius: 0;
-   -moz-border-radius: 0;
-   border-radius: 0;
- }
- &:last-child {
-   -webkit-border-radius: 0;
-   -moz-border-radius: 0;
-   border-radius: 0;
- }
 }
-.wizard .badge {
-  margin: 0 5px 0 18px;
-  position: relative;
-  top: -1px;
+.rhci-steps-buttons .btn > .fa-angle-right {
+  margin-left: 5px;
 }
-.wizard a:first-child .badge {
-  margin-left: 0;
+
+.rhci-page {
+  border-top: 1px solid #d0d0d0;
+  border-bottom: 1px solid #d0d0d0;
+  margin-left: -2px;
 }
-.wizard .active {
-  background: #007ACC;
-  color: #fff;
-  &:after {
-    border-left-color: #007ACC;
- }
+.sidebar-pf-left {
+  border: 1px solid #d0d0d0;
+  background-color:  #f5f5f5;
+}
+
+.sidebar-pf .nav-stacked {
+  margin-top: 0px;
 }

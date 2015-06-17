@@ -5,13 +5,12 @@ export default Ember.Controller.extend(ConfigureEnvironmentMixin, {
 
   needs: ['deployment'],
 
+  satelliteTabRouteName: Ember.computed.alias("controllers.deployment.satelliteTabRouteName"),
   organizationTabRouteName: Ember.computed.alias("controllers.deployment.organizationTabRouteName"),
 
   selectedOrganization: Ember.computed.alias("controllers.deployment.organization"),
 
   step2RouteName: Ember.computed.alias("controllers.deployment.step2RouteName"),
-
-  useDefaultOrgViewForEnv: Ember.computed.alias("controllers.deployment.useDefaultOrgViewForEnv"),
 
   nullifyLifecycleEnvIfSelected: function(){
     if (this.get('useDefaultOrgViewForEnv')) {
@@ -45,7 +44,7 @@ export default Ember.Controller.extend(ConfigureEnvironmentMixin, {
       var environment = this.store.createRecord('lifecycle-environment', this.get('fields_env'));
       environment.save().then(function(result) {
         //success
-        self.get('nonLibraryEnvironments').pushObject(result);
+        self.get('lifecycleEnvironments').addObject(result);
         self.set('selectedEnvironment', environment);
         self.get('controllers.deployment').set('lifecycle_environment', environment);
         return self.set('showAlertMessage', true);

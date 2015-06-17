@@ -3,10 +3,14 @@
 <thead>
     <tr>
       <th> </th>
-      <th> Name </th>
-      <th> MAC </th>
-      <th> CPU's </th>
+      <th> Host Name </th>
+      <th> MAC Address </th>
+      <th> Host Type </th>
+      <th> CPU </th>
       <th> Memory </th>
+      <th> # Disks </th>
+      <th> Disk Space </th>
+      <th> Network </th>
     </tr>
   </thead>
 
@@ -17,8 +21,7 @@
   </tbody>
 </table>
 
-<div class='pull-right'>
-  <br />
-  {{#link-to 'deployments' class='btn btn-default'}}Cancel{{/link-to}}
-  {{#link-to 'hypervisor.discovered-host' class='btn btn-primary'}}Next{{/link-to}}
-</div>
+{{cancel-back-next backRouteName='rhev-setup'
+                   disableBack=false
+                   nextRouteName=engineNextRouteName
+                   disableNext=false}}

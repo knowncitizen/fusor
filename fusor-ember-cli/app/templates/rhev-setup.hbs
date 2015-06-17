@@ -1,26 +1,19 @@
 <div class='row'>
   <div class='col-md-9'>
-    Select the setup type.
-  </div>
-</div>
+    <p>
+      Select the setup type.
+    </p>
 
-<div class='row'>
-  <div class='col-md-8 col-md-offset-1'>
-
-    <div class='row'>
-      <h3>
+    <div class='ident-radio'>
       {{#radio-button value="selfhost" groupValue=rhevSetup changed="rhevSetupChanged" id='selfhost'}}
         Self-hosted
       {{/radio-button}}
-      </h3>
     </div>
 
-    <div class='row'>
-      <h3>
+    <div class='ident-radio'>
       {{#radio-button value="rhevhost" groupValue=rhevSetup changed="rhevSetupChanged" id='rhevhost'}}
         Hypervisor + engine
       {{/radio-button}}
-      </h3>
     </div>
 
   </div>
@@ -28,9 +21,8 @@
 
 <br />
 
-<div class='pull-right'>
-    {{#link-to 'deployments' class='btn btn-default'}}Cancel{{/link-to}}
-    {{#link-to 'engine.discovered-host' class='btn btn-primary'}}Next{{/link-to}}
-</div>
+{{cancel-back-next backRouteName='configure-environment'
+                   disableBack=false
+                   nextRouteName='engine.discovered-host'
+                   disableNext=false}}
 
-{{partial 'cancel-deployment-modal'}}

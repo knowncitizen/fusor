@@ -5,7 +5,6 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   organization: DS.belongsTo('organization', {async: true}),
   lifecycle_environment: DS.belongsTo('lifecycle-environment', {async: true}),
-  foreman_task_uuid: DS.attr('string'),
 
   deploy_rhev: DS.attr('boolean'),
   deploy_cfme: DS.attr('boolean'),
@@ -27,12 +26,22 @@ export default DS.Model.extend({
   rhev_root_password: DS.attr('string'),
   cfme_root_password: DS.attr('string'),
 
+  foreman_task_uuid: DS.attr('string'),
+  upstream_consumer_uuid: DS.attr('string'),
+  upstream_consumer_name: DS.attr('string'),
+
+  rhev_export_domain_name: DS.attr('string'),
+  rhev_export_domain_address: DS.attr('string'),
+  rhev_export_domain_path: DS.attr('string'),
+
+  rhev_local_storage_path: DS.attr('string'),
+  rhev_gluster_node_name: DS.attr('string'),
+  rhev_gluster_node_address: DS.attr('string'),
+  rhev_gluster_ssh_port: DS.attr('string'),
+  rhev_gluster_root_password: DS.attr('string'),
+
   created_at: DS.attr('date'),
   updated_at: DS.attr('date'),
-
-  useDefaultOrgViewForEnv: function() {
-    return !!(this.get('discovered_host.id'));
-  }.property('discovered_host'),
 
   // has one Engine
   discovered_host: DS.belongsTo('discovered-host', {inverse: 'deployment', async: true}),
@@ -41,3 +50,5 @@ export default DS.Model.extend({
   discovered_hosts: DS.hasMany('discovered-host', {inverse: 'deployments', async: true}),
 
 });
+
+
