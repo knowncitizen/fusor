@@ -126,7 +126,6 @@ export default Ember.Route.extend(DeploymentRouteMixin, {
       });
     },
 
-
   }
 
 });

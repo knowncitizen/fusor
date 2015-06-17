@@ -20,10 +20,7 @@ export default Ember.Mixin.create({
           alert('There was an error trying to save: ' + error);
         }
       );
-    },
+    }
   }
 
 });
-
-
-

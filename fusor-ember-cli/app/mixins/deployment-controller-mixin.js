@@ -161,6 +161,6 @@ export default Ember.Mixin.create({
         return 'review'
       }
     }
-  }.property('step2RouteName', 'isOpenStack', 'isCloudForms', 'isSubscriptions'),
+  }.property('step2RouteName', 'isOpenStack', 'isCloudForms', 'isSubscriptions')
 
 });

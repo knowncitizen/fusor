@@ -47,8 +47,6 @@ export default DS.Model.extend({
   discovered_host: DS.belongsTo('discovered-host', {inverse: 'deployment', async: true}),
 
   // has many Hypervisors
-  discovered_hosts: DS.hasMany('discovered-host', {inverse: 'deployments', async: true}),
+  discovered_hosts: DS.hasMany('discovered-host', {inverse: 'deployments', async: true})
 
 });
-
-

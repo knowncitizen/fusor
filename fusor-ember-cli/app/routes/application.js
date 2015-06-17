@@ -13,7 +13,7 @@ export default Ember.Route.extend({
     },
     willImplement: function() {
       alert('Check back soon. This will be implemented soon.');
-    },
+    }
 
   }
 });

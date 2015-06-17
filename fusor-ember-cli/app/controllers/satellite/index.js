@@ -7,8 +7,8 @@ export default Ember.Controller.extend(SatelliteControllerMixin, {
 
   validations: {
     name: {
-      presence: true,
-    },
+      presence: true
+    }
   },
 
   name: Ember.computed.alias("controllers.deployment.name"),
@@ -21,6 +21,6 @@ export default Ember.Controller.extend(SatelliteControllerMixin, {
   idSatName: 'deployment_sat_name',
   idSatDesc: 'deployment_sat_desc',
 
-  backRouteNameOnSatIndex: 'deployment.start',
+  backRouteNameOnSatIndex: 'deployment.start'
 
 });

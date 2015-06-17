@@ -35,8 +35,6 @@ export default Ember.ArrayController.extend({
         self.set('showSuccessMessage', true);
       }, 4500);
      }
-
-  },
-
+  }
 
 });

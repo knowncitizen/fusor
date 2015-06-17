@@ -17,6 +17,6 @@ export default Ember.Controller.extend({
 
   nameSelectSubscriptions: Ember.computed.alias("controllers.rhci.nameSelectSubscriptions"),
 
-  stepNumberReview: Ember.computed.alias("controllers.deployment.stepNumberReview"),
+  stepNumberReview: Ember.computed.alias("controllers.deployment.stepNumberReview")
 
 });

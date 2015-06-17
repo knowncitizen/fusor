@@ -29,6 +29,6 @@ export default Ember.Controller.extend({
 
   prog: 1,
 
-  incrementBy: 20,
+  incrementBy: 20
 
 });

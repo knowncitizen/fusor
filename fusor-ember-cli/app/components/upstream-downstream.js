@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 
     showDownstream: function() {
       this.set('isUpstream', false);
-    },
+    }
 
   }
 });

@@ -39,4 +39,3 @@ export default Ember.View.extend(Ember.ViewTargetActionSupport, {
   // }.on('didInsertElement'),
 
 });
-

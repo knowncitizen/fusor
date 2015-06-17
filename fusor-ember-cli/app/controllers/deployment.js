@@ -20,7 +20,7 @@ export default Ember.ObjectController.extend(DeploymentControllerMixin, DisableT
     name: {
       presence: true,
       length: { minimum: 2 }
-    },
+    }
   },
 
   selectedRhevEngine: null,
@@ -31,6 +31,6 @@ export default Ember.ObjectController.extend(DeploymentControllerMixin, DisableT
 
   isStarted: function() {
     return !!(this.get('model.foreman_task_uuid'));
-  }.property('model.foreman_task_uuid'),
+  }.property('model.foreman_task_uuid')
 
 });

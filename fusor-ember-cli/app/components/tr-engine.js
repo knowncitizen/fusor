@@ -11,8 +11,7 @@ export default Ember.Component.extend(SaveHostnameMixin, {
       return self.store.find('discovered-host', host.get('id')).then(function (result) {
         return controller.set('discovered_host', result);
       });
-    },
-
+    }
   }
 
 });

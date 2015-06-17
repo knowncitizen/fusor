@@ -26,6 +26,6 @@ export default Ember.Component.extend({
 
   envCssId: function () {
     return ('env_' + this.get('env.id'));
-  }.property('env'),
+  }.property('env')
 
 });

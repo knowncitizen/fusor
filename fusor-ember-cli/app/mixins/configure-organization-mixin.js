@@ -42,7 +42,7 @@ export default Ember.Mixin.create({
           //organization.unloadRecord();
         });
       //}
-    },
+    }
   }
 
 });

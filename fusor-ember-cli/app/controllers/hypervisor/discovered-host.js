@@ -81,6 +81,6 @@ export default Ember.ArrayController.extend({
     } else {
       return 'engine.discovered-host';
     }
-  }.property('rhev_is_self_hosted'),
+  }.property('rhev_is_self_hosted')
 
 });

@@ -28,17 +28,16 @@ export default Ember.Controller.extend({
   applicationModes2: [
        {
           id: 1,
-          name: 'Both',
+          name: 'Both'
        },
        {
           id: 2,
-          name: 'Virt',
+          name: 'Virt'
        },
        {
           id: 3,
-          name: 'Gluster',
+          name: 'Gluster'
        }
-  ],
+  ]
 
 });
-

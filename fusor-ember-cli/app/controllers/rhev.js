@@ -15,6 +15,6 @@ export default Ember.Controller.extend({
     } else {
       return 'Engine';
     }
-  }.property('isSelfHost'),
+  }.property('isSelfHost')
 
 });

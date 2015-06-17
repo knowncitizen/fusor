@@ -21,6 +21,6 @@ export default Ember.Route.extend(DeploymentNewSatelliteRouteMixin, {
         return controller.set('selectedEnvironment', results.get('firstObject'));
       }
     });
-  },
+  }
 
 });

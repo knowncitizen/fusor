@@ -42,6 +42,6 @@ export default Ember.ArrayController.extend({
 
   disableAttachButton: function() {
     return !(this.get('model').isAny('isSelectedSubscription')) || this.get('attachingInProgress');
-  }.property('model.@each.isSelectedSubscription', 'attachingInProgress'),
+  }.property('model.@each.isSelectedSubscription', 'attachingInProgress')
 
 });

@@ -26,6 +26,6 @@ export default Ember.Controller.extend({
     var hypervisorsIds = (this.get('selectedHypervisors').getEach('id'));
     console.log(hypervisorsIds);
     return !(hypervisorsIds.contains(item.get('id')));
-  }).property('selectedHypervisors', 'allDiscoveredHosts'),
+  }).property('selectedHypervisors', 'allDiscoveredHosts')
 
 });

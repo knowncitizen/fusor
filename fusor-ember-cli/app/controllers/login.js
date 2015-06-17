@@ -5,6 +5,6 @@ export default Ember.ObjectController.extend({
 
   identification: null,
   password: null,
-  errorMessage: null,
+  errorMessage: null
 
 });

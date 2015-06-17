@@ -30,7 +30,7 @@ export default Ember.Controller.extend({
 
     signOut: function() {
       return this.transitionTo('login');
-    },
+    }
 
   }
 });

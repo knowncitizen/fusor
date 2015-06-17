@@ -15,7 +15,7 @@ export default Ember.Component.extend({
 
   future: function() {
     return (this.get('num') > this.get('currentStepNumber'));
-  }.property('num', 'currentStepNumber'),
+  }.property('num', 'currentStepNumber')
 
   // isReviewTab: function() {
   //   return (this.get('routeName') == 'review')

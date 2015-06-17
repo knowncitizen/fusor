@@ -5,5 +5,5 @@ export default DS.Model.extend({
   state_time: DS.attr('string'),
   duration: DS.attr('string'),
   size: DS.attr('string'),
-  result: DS.attr('string'),
+  result: DS.attr('string')
 });

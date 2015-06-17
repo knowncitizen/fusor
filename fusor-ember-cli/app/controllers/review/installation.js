@@ -74,6 +74,6 @@ export default Ember.Controller.extend({
   nameRhev: Ember.computed.alias("controllers.rhci.nameRhev"),
   nameOpenStack: Ember.computed.alias("controllers.rhci.nameOpenStack"),
   nameCloudForms: Ember.computed.alias("controllers.rhci.nameCloudForms"),
-  nameSatellite: Ember.computed.alias("controllers.rhci.nameSatellite"),
+  nameSatellite: Ember.computed.alias("controllers.rhci.nameSatellite")
 
 });

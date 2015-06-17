@@ -18,6 +18,6 @@ export default Ember.Route.extend({
     controller.set('model', model);
     // TODO - how to make parent_id dynamic
     controller.set('parent_hostgroup', this.store.find('hostgroup', 1));
-  },
+  }
 
 });

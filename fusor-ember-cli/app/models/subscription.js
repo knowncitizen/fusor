@@ -6,5 +6,5 @@ export default DS.Model.extend({
   type: DS.attr('string'),
   startDate: DS.attr('date'),
   endDate: DS.attr('date'),
-  quantity: DS.attr('number'),
+  quantity: DS.attr('number')
 });

@@ -18,5 +18,5 @@ export default Ember.View.extend({
   doubleClick: function(event) {
     this.set('color', 'red');
     //alert("ClickableView was clicked!");
-  },
+  }
 });

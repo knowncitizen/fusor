@@ -25,6 +25,6 @@ export default DS.Model.extend({
   deployments: DS.hasMany('deployment', {inverse: 'discovered_hosts', async: true}),
 
   created_at: DS.attr('date'),
-  updated_at: DS.attr('date'),
+  updated_at: DS.attr('date')
 
 });

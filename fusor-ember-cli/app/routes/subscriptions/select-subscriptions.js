@@ -103,7 +103,7 @@ export default Ember.Route.extend({
       error: function(reason, transition) {
         console.log(reason);
         //alert(reason.statusText);
-      },
+      }
   }
 
 });

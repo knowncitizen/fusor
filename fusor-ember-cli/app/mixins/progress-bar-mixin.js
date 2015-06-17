@@ -87,6 +87,6 @@ export default Ember.Mixin.create({
     if ((this.get('deploymentStatus') === 'In Process') && (this.get('model.result') === 'pending')) {
       return "Installing components";
     }
-  }.property('deploymentStatus', 'model.result'),
+  }.property('deploymentStatus', 'model.result')
 
 });

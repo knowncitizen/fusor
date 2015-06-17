@@ -52,7 +52,7 @@ export default Ember.Controller.extend(ConfigureEnvironmentMixin, {
         alert('error saving environment');
       });
 
-    },
+    }
   }
 
 });

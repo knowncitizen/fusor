@@ -21,6 +21,6 @@ export default Ember.ArrayController.extend({
     } else {
       return model;
     }
-  }.property('sortedDeployments', 'searchDeploymentString'),
+  }.property('sortedDeployments', 'searchDeploymentString')
 
 });

@@ -18,6 +18,6 @@ export default Ember.Route.extend(DeploymentNewSatelliteRouteMixin, {
         controller.set('selectedOrganization', defaultOrg);
       }
     });
-  },
+  }
 
 });

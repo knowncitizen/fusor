@@ -6,6 +6,6 @@ export default Ember.Controller.extend({
   stepNumberSubscriptions: Ember.computed.alias("controllers.deployment.stepNumberSubscriptions"),
 
   disableTabManagementApplication: Ember.computed.not("model.isAuthenticated"),
-  disableTabSelectSubsciptions: Ember.computed.not("model.isAuthenticated"),
+  disableTabSelectSubsciptions: Ember.computed.not("model.isAuthenticated")
 
 });

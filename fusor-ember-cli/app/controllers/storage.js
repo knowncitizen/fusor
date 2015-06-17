@@ -20,6 +20,6 @@ export default Ember.Controller.extend({
 
   isGluster: function() {
     return (this.get('rhev_storage_type') === 'Gluster');
-  }.property('rhev_storage_type'),
+  }.property('rhev_storage_type')
 
 });
